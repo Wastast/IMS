@@ -49,7 +49,7 @@
 // import {userLogin} from 'api/login'
 import {TipsPop} from '@/utils/el_ui.js'
 import {setToken} from '@/utils/auth.js'
-import {asyncRouters} from '@/router.js';
+import {asyncRouters} from '@/router/index';
 export default {
   name: 'login',
   data () {
@@ -88,9 +88,7 @@ export default {
       let {username,password} = this.loginForm
       setToken('1')
       this.$router.addRoutes(asyncRouters)
-      this.$router.push({
-        path: '/'
-      })
+      this.$router.push('/')
     }
   }
 }
