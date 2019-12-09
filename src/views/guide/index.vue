@@ -6,40 +6,60 @@
       </div>
     </div>
     <ul class="list">
-      <router-link
-        tag="li" 
-        class="item"
-        v-for="(item,index) of list" :key="index"
-        :to="item.path"
-        >
+      <li class="item" v-for="(item, index) of list" :key="index" @click="toPath(item.path)">
         <dl>
           <dt>
-            <img :src="item.imgUrl">
+            <img :src="item.imgUrl" />
           </dt>
-          <dd>{{item.name}}</dd>
+          <dd>{{ item.name }}</dd>
         </dl>
-      </router-link>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
+import { resetRouter } from '@/router'
+import { filterRouter } from '@/router/permission'
+import backstage from '@/router/backstage'
+import demonstration from '@/router/demonstration'
+import { mapActions } from 'vuex'
 export default {
   name: 'index',
-  data () {
+  data() {
     return {
-      list: [{
-        name: '后台资源管理',
-        imgUrl: require('@/assets/img/houtai.png'),
-        path: '/backstage'
-      },{
-        name: 'BIM演示平台',
-        imgUrl: require('@/assets/img/bim.png'),
-        path: '/demonstration'
-      }]
+      list: [
+        {
+          name: '后台资源管理',
+          imgUrl: require('@/assets/img/houtai.png'),
+          path: '/backstage'
+        },
+        {
+          name: 'BIM演示平台',
+          imgUrl: require('@/assets/img/bim.png'),
+          path: '/demonstration'
+        }
+      ]
     }
   },
-  mounted () {
+  methods: {
+    //
+    async toPath(path) {
+      let target = ''
+      let routerArr = []
+      if (path === '/backstage') {
+        target = '/backstage'
+        routerArr = backstage
+      } else {
+        target = '/demonstration'
+        routerArr = demonstration
+      }
+      await this.$store.dispatch('generateRoutes', routerArr)
+      this.$router.push(target)
+    }
+  },
+  mounted() {
+    resetRouter()
   }
 }
 </script>

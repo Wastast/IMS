@@ -1,4 +1,4 @@
-import store from '@/store/store.js'
+import store from '@/store'
 
 // 获取权限
 export function getToken() {
@@ -7,7 +7,7 @@ export function getToken() {
     setToken(sessionStorage.token)
     sessionStorage.removeItem('token')
   }
-  return store.state.token || ''
+  return store.state.user.token || ''
 }
 
 // 设置权限
@@ -15,7 +15,7 @@ export function setToken(token) {
   store.dispatch('setKey',token).then( () => {
     // 当页面刷新的时候 将token放入缓存中
     window.addEventListener('beforeunload',() => {
-      sessionStorage.setItem('token',store.state.token)
+      sessionStorage.setItem('token',store.state.user.token)
     },{
       once: true
     })

@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
 // import '@babel/polyfill'
+import store from './store'
 import router from './router/index'
-import store from './store/store'
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
 import '@/styles/index.scss'
+import '@/styles/reset.css'
 import './icons/iconfont.css'
 import './permission'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false

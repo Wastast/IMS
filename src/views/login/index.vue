@@ -3,9 +3,9 @@
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
-        <h3 class="title">地图后台维护</h3>
+        <h3 class="title">后台管理系统</h3>
       </div>
-
+      
       <el-form-item prop="username">
         <span class="svg-container el-icon-user-solid">
         </span>
@@ -46,7 +46,7 @@
 </template>
 
 <script>
-// import {userLogin} from 'api/login'
+import {userLogin} from '@/api/login'
 import {TipsPop} from '@/utils/el_ui.js'
 import {setToken} from '@/utils/auth.js'
 import {asyncRouters} from '@/router/index';
@@ -83,12 +83,23 @@ export default {
   },
   methods:{
     // 登陆确认
-    login () {
+    async login () {
       this.loading = true
       let {username,password} = this.loginForm
-      setToken('1')
-      this.$router.addRoutes(asyncRouters)
-      this.$router.push('/')
+      userLogin({
+        userName: username,
+        passWord: password
+      }).then(data => {
+        if (data.code == 200) {
+          let token = data.data.token
+          setToken(token)
+          this.$router.push('/')
+          this.$router.addRoutes(asyncRouters)
+        }
+      })
+      // setToken('1')
+      // this.$router.addRoutes(asyncRouters)
+      // this.$router.push('/')
     }
   }
 }
@@ -126,6 +137,8 @@ export default {
   bottom: 0;
   right: 0;
   background-color: #2d3a4b;
+  background: url('~@/assets/img/loginBg.jpg');
+  background-size: 100% 100%;
   overflow: hidden;
   .login-form {
     position: relative;

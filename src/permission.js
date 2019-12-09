@@ -4,6 +4,7 @@ import { Message } from 'element-ui'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import { getToken } from '@/utils/auth' // 获取用户是否登录
+import store from '@/store';
 // import getPageTitle from '@/utils/pageTitle'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration

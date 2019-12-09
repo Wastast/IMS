@@ -33,6 +33,7 @@ export const constantRoutes = [
   // 指向页面错误跳转到404
   { path: '*',redirect: '/404',hidden: true,}
 ]
+
 // 配置异步路由
 export const asyncRouters = [...backstage,...demonstration]
 
@@ -41,5 +42,11 @@ const createRouter = () => new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 });
+
+export function resetRouter() {
+  const newRouter = createRouter()
+  router.matcher = newRouter.matcher // reset router
+}
+
 const router = createRouter()
 export default router
