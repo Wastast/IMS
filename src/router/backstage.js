@@ -2,15 +2,15 @@ import layout from '@/layout';
 // 这是后台路由配置界面
 export default [
   {
-    path: '/backstage',
-    name: 'backstage',
+    path: '/system',
+    name: 'system',
     component: layout,
-    redirect: '/backstage/index',
+    redirect: '/system/index',
     children: [
       {
         path: 'index',
         meta: { title: '主页', icon: 'home' },
-        component: () => import('@/views/backstage')
+        component: () => import('@/views/system')
       },
     ]
   },
@@ -28,28 +28,28 @@ export default [
     ]
   },
   {
-    path: '/user',
+    path: '/system/user',
     name: 'user',
     component: layout,
-    redirect: '/user/index',
+    redirect: '/system/user/index',
     children: [
       {
         path: 'index',
         meta: { title: '用户', icon: 'user' },
-        component: () => import('@/views/user')
+        component: () => import('@/views/system/user')
       }
     ]
   },
   {
-    path: '/role',
+    path: '/system/role',
     name: 'role',
     component: layout,
-    redirect: '/role/index',
+    redirect: '/system/role/index',
     children: [
       {
         path: 'index',
         meta: { title: '角色维护', icon: 'user' },
-        component: () => import('@/views/role')
+        component: () => import('@/views/system/role')
       }
     ]
   },

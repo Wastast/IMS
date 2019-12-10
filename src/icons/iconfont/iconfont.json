@@ -32,6 +32,13 @@
       "font_class": "user",
       "unicode": "e64d",
       "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "8922346",
+      "name": "锁",
+      "font_class": "suo",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
     }
   ]
 }
