@@ -67,8 +67,8 @@
 </template>
 
 <script>
-import { TipsPop } from '@/utils/el_ui.js'
-import { addRouter, deleteRouter, findRouter, updateRouter } from '@/api/back-router'
+import { TipsPop } from '@/utils/el_ui.js';
+import { addRouter, deleteRouter, findRouter, updateRouter } from '@/api/back-router';
 export default {
   name: 'index',
   data() {
@@ -87,26 +87,26 @@ export default {
         status: [{ required: true }],
         url: [{ required: true }]
       }
-    }
+    };
   },
   computed: {},
   watch: {},
   methods: {
     // 添加路由
     adddRoute() {
-      this.dialogVisible = true
+      this.dialogVisible = true;
     },
     // dialog关闭前执行
     handleClose(done) {
-      this.resetFrom()
-      done()
+      this.resetFrom();
+      done();
     },
     // 添加表格数据
     addTable() {
       // 表单验证
       this.$refs['ruleForm'].validate((data, value) => {
         if (data) {
-          let { name, remark, status, type, url } = this.ruleForm
+          let { name, remark, status, type, url } = this.ruleForm;
           addRouter({
             name,
             remark,
@@ -114,15 +114,14 @@ export default {
             type,
             url
           })
-            .then(data => {
-              let value = data.data
-              this.getRouter()
-              this.resetFrom()
-              this.dialogVisible = false
+            .then(() => {
+              this.getRouter();
+              this.resetFrom();
+              this.dialogVisible = false;
             })
-            .catch(() => {})
+            .catch(() => {});
         }
-      })
+      });
     },
     // 删除表格数据
     handleDelete(index, row) {
@@ -132,40 +131,41 @@ export default {
             id: row.id
           })
             .then(data => {
-              this.getRouter()
+              this.getRouter();
             })
-            .catch(() => {})
+            .catch(() => {});
         })
-        .catch(() => {})
+        .catch(() => {});
     },
     // 清除表单
     resetFrom() {
-      this.$refs['ruleForm'].resetFields()
+      this.$refs['ruleForm'].resetFields();
     },
     // 过滤数据
     filerData(data) {
-      let arr = []
-      if (data.length == 0) {
-        return []
+      let arr = [];
+      if (data.length === 0) {
+        return [];
       }
       data.forEach(item => {
-        let { id, name, status, type, url } = item
-        let obj = { id, name, status, type, url }
-        arr.push(obj)
-      })
-      return arr
+        let { id, name, status, type, url } = item;
+        let obj = { id, name, status, type, url };
+        arr.push(obj);
+      });
+      return arr;
     },
+    // 获取路由
     getRouter() {
       findRouter().then(data => {
-        let list = this.filerData(data.data)
-        this.tableData = list
-      })
+        let list = this.filerData(data.data);
+        this.tableData = list;
+      });
     }
   },
   mounted() {
-    this.getRouter()
+    this.getRouter();
   }
-}
+};
 </script>
 
 <style scoped lang="scss">

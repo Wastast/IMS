@@ -21,27 +21,26 @@
 </template>
 
 <script>
-import Breadcrumb from './Breadcrumb'
-import { removeToken } from '@/utils/auth.js'
+import Breadcrumb from './Breadcrumb';
+import { removeToken } from '@/utils/auth.js';
+import { mapGetters } from 'vuex';
 export default {
   name: 'Navbar',
   computed: {
-    isShink() {
-      return this.$store.state.isShink
-    }
+    ...mapGetters(['isShink'])
   },
   methods: {
     // 修改收缩
     shinkSidebar() {
-      this.$store.commit('setIsshink')
+      this.$store.commit('SET_SHINK');
     },
     // 退出登录
     userOut() {
-      removeToken()
+      removeToken();
     }
   },
   components: { Breadcrumb }
-}
+};
 </script>
 
 <style lang="scss" scoped>

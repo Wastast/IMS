@@ -43,11 +43,11 @@
 </template>
 
 <script>
-import vuescroll from 'vuescroll'
-import Sidebar from './components/Sidebar'
-import Appmain from './components/Appmain'
-import Navbar from './components/Navbar'
-import { mapGetters } from 'vuex'
+import vuescroll from 'vuescroll';
+import Sidebar from './components/Sidebar';
+import Appmain from './components/Appmain';
+import Navbar from './components/Navbar';
+import { mapGetters } from 'vuex';
 export default {
   name: 'layout',
   data() {
@@ -63,7 +63,7 @@ export default {
         }
       },
       windowHeight: '0'
-    }
+    };
   },
   components: {
     vuescroll,
@@ -72,27 +72,22 @@ export default {
     Navbar
   },
   computed: {
-    ...mapGetters(['permission_routes']),
-    isShink() {
-      return this.$store.state.isShink
-    },
+    ...mapGetters(['permission_routes', 'isShink']),
     path() {
-      return this.$route.path
+      return this.$route.path;
     }
     // // 获取全部路由
     // permission_routes() {
-    //   console.log(this.$router.options.routes);
-    //   return this.$router.options.routes
+    //   return this.$router.options.routes;
     // }
   },
   mounted() {
-    console.log(this.permission_routes)
-    this.windowHeight = window.innerHeight - 50
+    this.windowHeight = window.innerHeight - 50;
     window.onresize = () => {
-      this.windowHeight = window.innerHeight - 50
-    }
+      this.windowHeight = window.innerHeight - 50;
+    };
   }
-}
+};
 </script>
 
 <style scoped>

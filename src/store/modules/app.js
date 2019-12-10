@@ -1,18 +1,18 @@
 const state = {
   isShink: false
-}
+};
 
 const mutations = {
-  SET_SHINK (state,data) {
-    state.isShink = data
-  } 
-}
+  SET_SHINK(context, data) {
+    context.isShink = !context.isShink;
+    console.log(context.isShink);
+  }
+};
 
-const actions = {
-}
+const actions = {};
 
 export default {
   state,
   mutations,
   actions
-}
+};

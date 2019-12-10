@@ -19,11 +19,9 @@
 </template>
 
 <script>
-import { resetRouter } from '@/router'
-import { filterRouter } from '@/router/permission'
-import system from '@/router/system'
-import demonstration from '@/router/demonstration'
-import { mapActions } from 'vuex'
+import { resetRouter } from '@/router';
+import { filterRouter } from '@/router/permission';
+import { mapActions } from 'vuex';
 export default {
   name: 'index',
   data() {
@@ -40,28 +38,18 @@ export default {
           path: '/demonstration'
         }
       ]
-    }
+    };
   },
   methods: {
-    //
     async toPath(path) {
-      let target = ''
-      let routerArr = []
-      if (path === '/system') {
-        target = '/system'
-        routerArr = system
-      } else {
-        target = '/demonstration'
-        routerArr = demonstration
-      }
-      await this.$store.dispatch('generateRoutes', routerArr)
-      this.$router.push(target)
+      await this.$store.dispatch('generateRoutes');
+      await this.$router.push(path);
     }
   },
   mounted() {
-    resetRouter()
+    resetRouter();
   }
-}
+};
 </script>
 
 <style scoped lang="scss">

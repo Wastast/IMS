@@ -2,10 +2,10 @@
   <div class="wscn-http404-container">
     <div class="wscn-http404">
       <div class="pic-404">
-        <img class="pic-404__parent" src="@/assets/404_images/404.png" alt="404">
-        <img class="pic-404__child left" src="@/assets/404_images/404_cloud.png" alt="404">
-        <img class="pic-404__child mid" src="@/assets/404_images/404_cloud.png" alt="404">
-        <img class="pic-404__child right" src="@/assets/404_images/404_cloud.png" alt="404">
+        <img class="pic-404__parent" src="@/assets/404_images/404.png" alt="404" />
+        <img class="pic-404__child left" src="@/assets/404_images/404_cloud.png" alt="404" />
+        <img class="pic-404__child mid" src="@/assets/404_images/404_cloud.png" alt="404" />
+        <img class="pic-404__child right" src="@/assets/404_images/404_cloud.png" alt="404" />
       </div>
       <div class="bullshit">
         <div class="bullshit__oops">哎呀!出错了</div>
@@ -18,33 +18,32 @@
 </template>
 
 <script>
-  export default {
-    name: 'page404',
-    computed: {
-      message() {
-        let { redirectedFrom } = this.$route
-        return `站长说你不能进入这个页面...`
-      }
+export default {
+  name: 'page404',
+  computed: {
+    message() {
+      return `您输入的页面暂不存在...`;
     }
   }
+};
 </script>
 
 <style lang="scss" scoped>
-.wscn-http404-container{
-  transform: translate(-50%,-50%);
+.wscn-http404-container {
+  transform: translate(-50%, -50%);
   position: absolute;
   top: 40%;
   left: 50%;
 }
 .wscn-http404 {
   position: relative;
-  width: 1200px;
-  padding: 0 50px;
+  width: px2rem(1200rem);
+  padding: 0 px2rem(50rem);
   overflow: hidden;
   .pic-404 {
     position: relative;
     float: left;
-    width: 600px;
+    width: px2rem(600rem);
     overflow: hidden;
     &__parent {
       width: 100%;
@@ -52,9 +51,9 @@
     &__child {
       position: absolute;
       &.left {
-        width: 80px;
-        top: 17px;
-        left: 220px;
+        width: px2rem(80rem);
+        top: px2rem(17rem);
+        left: px2rem(220rem);
         opacity: 0;
         animation-name: cloudLeft;
         animation-duration: 2s;
@@ -64,9 +63,9 @@
         animation-delay: 1s;
       }
       &.mid {
-        width: 46px;
-        top: 10px;
-        left: 420px;
+        width: px2rem(46rem);
+        top: px2rem(10rem);
+        left: px2rem(420rem);
         opacity: 0;
         animation-name: cloudMid;
         animation-duration: 2s;
@@ -76,9 +75,9 @@
         animation-delay: 1.2s;
       }
       &.right {
-        width: 62px;
-        top: 100px;
-        left: 500px;
+        width: px2rem(62rem);
+        top: px2rem(100rem);
+        left: px2rem(500rem);
         opacity: 0;
         animation-name: cloudRight;
         animation-duration: 2s;
@@ -89,67 +88,67 @@
       }
       @keyframes cloudLeft {
         0% {
-          top: 17px;
-          left: 220px;
+          top: px2rem(17rem);
+          left: px2rem(220rem);
           opacity: 0;
         }
         20% {
-          top: 33px;
-          left: 188px;
+          top: px2rem(33rem);
+          left: px2rem(188rem);
           opacity: 1;
         }
         80% {
-          top: 81px;
-          left: 92px;
+          top: px2rem(81rem);
+          left: px2rem(92rem);
           opacity: 1;
         }
         100% {
-          top: 97px;
-          left: 60px;
+          top: px2rem(97rem);
+          left: px2rem(60rem);
           opacity: 0;
         }
       }
       @keyframes cloudMid {
         0% {
-          top: 10px;
-          left: 420px;
+          top: px2rem(10rem);
+          left: px2rem(420rem);
           opacity: 0;
         }
         20% {
-          top: 40px;
-          left: 360px;
+          top: px2rem(40rem);
+          left: px2rem(360rem);
           opacity: 1;
         }
         70% {
-          top: 130px;
-          left: 180px;
+          top: px2rem(130rem);
+          left: px2rem(180rem);
           opacity: 1;
         }
         100% {
-          top: 160px;
-          left: 120px;
+          top: px2rem(160rem);
+          left: px2rem(120rem);
           opacity: 0;
         }
       }
       @keyframes cloudRight {
         0% {
-          top: 100px;
-          left: 500px;
+          top: px2rem(100rem);
+          left: px2rem(500rem);
           opacity: 0;
         }
         20% {
-          top: 120px;
-          left: 460px;
+          top: px2rem(120rem);
+          left: px2rem(460rem);
           opacity: 1;
         }
         80% {
-          top: 180px;
-          left: 340px;
+          top: px2rem(180rem);
+          left: px2rem(340rem);
           opacity: 1;
         }
         100% {
-          top: 200px;
-          left: 300px;
+          top: px2rem(200rem);
+          left: px2rem(300rem);
           opacity: 0;
         }
       }
