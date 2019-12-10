@@ -11,11 +11,11 @@ export default [
         path: 'index',
         meta: { title: '主页', icon: 'home' },
         component: () => import('@/views/system')
-      },
+      }
     ]
   },
   {
-    path: '/router',
+    path: '/system/router',
     name: 'router',
     component: layout,
     redirect: '/router/index',
@@ -23,7 +23,7 @@ export default [
       {
         path: 'index',
         meta: { title: '路由维护', icon: 'route' },
-        component: () => import('@/views/router')
+        component: () => import('@/views/system/router')
       }
     ]
   },
@@ -52,5 +52,5 @@ export default [
         component: () => import('@/views/system/role')
       }
     ]
-  },
-]
+  }
+];

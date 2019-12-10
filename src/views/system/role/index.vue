@@ -15,30 +15,30 @@
 </template>
 
 <script>
-import { findRole } from '@/api/role'
+import { findRole } from '@/api/role';
 export default {
   name: 'index',
   data() {
     return {
       tableData: []
-    }
+    };
   },
   computed: {},
   watch: {},
   methods: {
     // 过滤角色数据
     filterRole(data) {
-      let arr = []
-      return data
+      let arr = [];
+      return data;
     }
   },
   mounted() {
     findRole().then(data => {
-      let list = this.filterRole(data.data.list)
-      this.tableData = list
-    })
+      let list = this.filterRole(data.data.list);
+      this.tableData = list;
+    });
   }
-}
+};
 </script>
 
 <style scoped lang="scss"></style>

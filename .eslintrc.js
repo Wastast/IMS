@@ -19,7 +19,8 @@ module.exports = {
     'no-eval': 1, //禁止使用eval
     'no-floating-decimal': 2, //禁止省略浮点数中的0 .5 3.
     'no-inline-comments': 0, //禁止行内备注
-    'no-unused-vars': process.env.NODE_ENV === 'production' ? 'error' : 'off' // 在生产环境中 没有消除定义为使用的变量产生报错
+    'no-unused-vars': process.env.NODE_ENV === 'production' ? 'error' : 'off', // 在生产环境中 没有消除定义为使用的变量产生报错
+    'vue/no-unused-vars': 0
   },
   parserOptions: {
     parser: 'babel-eslint'

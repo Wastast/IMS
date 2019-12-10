@@ -1,8 +1,8 @@
 import router from './router';
-import { Message } from 'element-ui';
 import NProgress from 'nprogress'; // progress bar
 import 'nprogress/nprogress.css'; // progress bar style
 import { getToken } from '@/utils/auth'; // 获取用户是否登录
+import { regModuleName } from '@/utils/regular';
 import store from '@/store';
 // import getPageTitle from '@/utils/pageTitle'
 
@@ -29,7 +29,8 @@ router.beforeEach(async (to, from, next) => {
     } else {
       let routers = store.state.user.addRoutes;
       if (to.path !== '/' && routers.length === 0) {
-        store.dispatch('generateRoutes').then(() => {
+        let code = to.redirectedFrom.split('/')[1];
+        store.dispatch('generateRoutes', code).then(() => {
           next(to.redirectedFrom);
         });
       } else {

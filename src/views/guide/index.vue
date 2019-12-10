@@ -6,7 +6,7 @@
       </div>
     </div>
     <ul class="list">
-      <li class="item" v-for="(item, index) of list" :key="index" @click="toPath(item.path)">
+      <li class="item" v-for="(item, index) of list" :key="index" @click="toPath(item)">
         <dl>
           <dt>
             <img :src="item.imgUrl" />
@@ -20,8 +20,6 @@
 
 <script>
 import { resetRouter } from '@/router';
-import { filterRouter } from '@/router/permission';
-import { mapActions } from 'vuex';
 export default {
   name: 'index',
   data() {
@@ -30,20 +28,23 @@ export default {
         {
           name: '后台资源管理',
           imgUrl: require('@/assets/img/houtai.png'),
-          path: '/system'
+          path: '/system',
+          code: 'system'
         },
         {
           name: 'BIM演示平台',
           imgUrl: require('@/assets/img/bim.png'),
-          path: '/demonstration'
+          path: '/demonstration',
+          code: 'demonstration'
         }
       ]
     };
   },
   methods: {
-    async toPath(path) {
-      await this.$store.dispatch('generateRoutes');
-      await this.$router.push(path);
+    async toPath(obj) {
+      console.log(obj.path);
+      await this.$store.dispatch('generateRoutes', obj.code);
+      await this.$router.push(obj.path);
     }
   },
   mounted() {

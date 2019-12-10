@@ -1,6 +1,5 @@
 import router from '@/router';
-import { filterRouter } from '@/router/permission';
-import { findRouter } from '@/api/back-router';
+import { getAsyncRouter } from '@/router/permission';
 const state = {
   token: '',
   addRoutes: []
@@ -24,8 +23,8 @@ const actions = {
     await context.commit('SwitchToken', data);
   },
   // 筛选路由
-  async generateRoutes({ commit }) {
-    let list = await filterRouter();
+  async generateRoutes({ commit }, code) {
+    let list = await getAsyncRouter(code);
     await commit('SET_ROUTES', list);
   }
 };
