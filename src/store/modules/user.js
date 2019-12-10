@@ -13,11 +13,12 @@ const mutations = {
   // 设置路由
   SET_ROUTES: (state, routes) => {
     state.addRoutes = routes
+    console.log(routes);
     router.addRoutes(routes)
   }
 }
 
-let routerArr = ['backstage', 'router', 'user', 'role']
+let routerArr = ['system', 'router', 'user', 'role']
 function filterAsyncRoutes(routers) {
   let arr = []
   routers.forEach(item => {

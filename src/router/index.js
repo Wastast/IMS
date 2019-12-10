@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import backstage from './backstage';
+import system from './system';
 import demonstration from './demonstration';
 
 Vue.use(Router)
@@ -35,7 +35,7 @@ export const constantRoutes = [
 ]
 
 // 配置异步路由
-export const asyncRouters = [...backstage,...demonstration]
+export const asyncRouters = [...system,...demonstration]
 
 // 创建一个vue-router 并且每次切换页面都调整滚动条的高度,并且存入固定路由界面
 const createRouter = () => new Router({

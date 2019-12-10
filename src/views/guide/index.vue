@@ -21,7 +21,7 @@
 <script>
 import { resetRouter } from '@/router'
 import { filterRouter } from '@/router/permission'
-import backstage from '@/router/backstage'
+import system from '@/router/system'
 import demonstration from '@/router/demonstration'
 import { mapActions } from 'vuex'
 export default {
@@ -32,7 +32,7 @@ export default {
         {
           name: '后台资源管理',
           imgUrl: require('@/assets/img/houtai.png'),
-          path: '/backstage'
+          path: '/system'
         },
         {
           name: 'BIM演示平台',
@@ -47,9 +47,9 @@ export default {
     async toPath(path) {
       let target = ''
       let routerArr = []
-      if (path === '/backstage') {
-        target = '/backstage'
-        routerArr = backstage
+      if (path === '/system') {
+        target = '/system'
+        routerArr = system
       } else {
         target = '/demonstration'
         routerArr = demonstration
